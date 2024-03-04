@@ -18,6 +18,6 @@ public class SleepThread {
         });
         t1.start();
         // 线程中断
-//        t1.interrupt();
+        t1.interrupt();
     }
 }
