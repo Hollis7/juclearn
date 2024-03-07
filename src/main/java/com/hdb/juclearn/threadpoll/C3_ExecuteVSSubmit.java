@@ -1,5 +1,7 @@
 package com.hdb.juclearn.threadpoll;
 
+
+import java.util.Arrays;
 import java.util.concurrent.*;
 
 public class C3_ExecuteVSSubmit {
@@ -14,6 +16,19 @@ public class C3_ExecuteVSSubmit {
         Integer res = future.get();
         System.out.println(res);
         threadPool.shutdownNow();
-        
+
+        ArrayBlockingQueue<Runnable> arrayBlockingQueue = new ArrayBlockingQueue<>(10);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Runnable task;
+                while ((task = arrayBlockingQueue.poll()) != null) {
+                    task.run();
+                }
+            }
+        }).start();
+
     }
+
+
 }
