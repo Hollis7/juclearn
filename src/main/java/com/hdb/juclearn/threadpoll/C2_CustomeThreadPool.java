@@ -1,5 +1,7 @@
 package com.hdb.juclearn.threadpoll;
 
+import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
+
 import java.util.concurrent.*;
 
 /**
@@ -23,6 +25,7 @@ public class C2_CustomeThreadPool {
                 TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(10),
                 Executors.defaultThreadFactory(),
+//                new CustomizableThreadFactory("购物"),
                 new ThreadPoolExecutor.AbortPolicy()
         );
         //10个顾客请求
