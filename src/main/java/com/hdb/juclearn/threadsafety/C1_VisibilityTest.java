@@ -6,9 +6,9 @@ public class C1_VisibilityTest {
     public static void main(String[] args) throws InterruptedException {
         new Thread(() -> {
             while (always) {
-//                System.out.println("执行了....");
-//                synchronized (always) {
-//                }
+                System.out.println("执行了....");
+                synchronized (always) {
+                }
             }
 
         }).start();
